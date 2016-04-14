@@ -92,7 +92,7 @@ module.exports = function(options, transform) {
           }
         }
         if (response && response.statusCode >= 400 && response.statusCode < 600) {
-          return reject(errorify(body || response, extend({ statusCode: response.statusCode, url: response.req.path}, response.headers)));
+          return reject(JSON.stringify(response));
         }
         return resolve(body);
       });
